@@ -1,0 +1,25 @@
+
+.button {
+  width: 13rem;
+  line-height: 3rem;
+  color: rgb(var(--light-background-color));
+  background-color: rgb(var(--highlight-color));
+  border: 2px solid transparent;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0.5rem;
+}
+
+.button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(var(--highlight-color));
+  font-size: 1.5rem;
+  color: rgb(var(--gray-text-color));
+}
+
+.button:active {
+  opacity: 0.7;
+  scale: 0.95;
+}

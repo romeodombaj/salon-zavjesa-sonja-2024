@@ -1,0 +1,133 @@
+.wrapper {
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 1rem;
+  transition: 0.5s;
+  height: 6rem;
+  top: 0;
+}
+
+.wrapper-shrink {
+  background-color: rgb(var(--light-background-color));
+  width: 100%;
+  padding-top: 0;
+  color: rgb(var(--highlight-color));
+  height: 3rem;
+}
+
+.content-section {
+  display: flex;
+  color: rgb(var(--light-background-color));
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 100%;
+  margin: auto;
+  width: 70%;
+  font-size: 1.1em;
+  user-select: none;
+  transition: 1s;
+}
+
+.home {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: right;
+  width: 15rem;
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  border-radius: 2rem;
+}
+
+.home-shrink {
+  color: rgb(var(--highlight-color));
+  font-size: 1.3em;
+  color: rgb(var(--highlight-dark-color));
+}
+
+.home:hover {
+  color: rgba(var(--highlight-color), 1);
+}
+
+.portfolios {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: wrap;
+  gap: 1rem;
+}
+
+.portfolios-shrink {
+  gap: 0;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 1rem;
+  width: 15rem;
+  color: rgb(var(--light-background-color));
+}
+
+.info-button {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid rgb(var(--highlight-color));
+  transition: 0.5s;
+}
+
+.info-button::before {
+  content: "";
+  background-color: rgba(var(--highlight-color), 1);
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.info-button:hover::before {
+  opacity: 1;
+}
+
+.info-button:hover {
+  border: 3px solid rgba(var(--light-background-color), 1);
+}
+
+.info-button-shrink {
+  color: rgba(var(--highlight-dark-color), 1);
+  border-radius: 0.25rem;
+}
+
+.info-button-shrink:hover {
+  color: white;
+}
+
+@media screen and (max-width: 1080px) {
+  .content-section {
+    width: 100%;
+  }
+
+  .home {
+    text-align: center;
+    width: 10rem;
+  }
+
+  .info {
+    width: 10rem;
+    gap: 0.1rem;
+  }
+}

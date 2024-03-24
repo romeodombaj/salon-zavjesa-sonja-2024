@@ -1,0 +1,47 @@
+.wrapper {
+  width: 100%;
+  height: 75vh;
+  background-color: rgba(var(--dark-background-color), 1);
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: bold;
+  color: rgba(var(--light-background-color), 1);
+  margin-bottom: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 75%;
+  height: 85%;
+  position: relative;
+  margin: auto;
+}
+
+.map {
+  height: 90%;
+  width: 70%;
+  border: none;
+}
+
+.info {
+  height: 60%;
+  width: 20%;
+  background-color: rgba(var(--highlight-color), 1);
+  padding: 1.5rem;
+}
+
+.info-title {
+  font-size: 1.6em;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: rgba(var(--light-background-color), 1);
+}

@@ -1,0 +1,45 @@
+.wrapper {
+  width: 100%;
+  height: fit-content;
+  background-color: rgb(var(--dark-background-color));
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.grid {
+  margin: auto;
+  width: 65%;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  row-gap: 4rem;
+}
+
+.description {
+  background-color: rgb(var(--highlight-color));
+  height: 7rem;
+  line-height: 2.5rem;
+  border-radius: 1rem;
+  color: rgb(var(--light-background-color));
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wrapper {
+  background-color: rgb(var(--highlight-color));
+  height: 7rem;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.icon {
+  height: 3rem;
+}
