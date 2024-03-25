@@ -1,21 +1,10 @@
+"use client";
+
 import styles from "./Gallery.module.css";
 import GalleryImage from "./GalleryImage";
-import { Fragment } from "react";
-import fs from "fs";
-import path from "path";
-import { Cabin_Sketch } from "next/font/google";
 
-export const getPostLength = (directory) => {
-  return fs.readdirSync(directory).length;
-};
-
-export default function Gallery({ slug }) {
+export default function Gallery({ slug, length }) {
   const isMobile = false;
-
-  const POST_FOLDER_NAME = `images/webImages/${slug}`;
-  const POSTS_DIRECTORY = path.join(process.cwd(), "public", POST_FOLDER_NAME);
-
-  const length = getPostLength(POSTS_DIRECTORY);
 
   const imageList = Array.from(
     { length: length },
@@ -79,6 +68,40 @@ export default function Gallery({ slug }) {
         <div className={styles[`background-title`]}>{slug}</div>
 
         {imageList && (
+          <div className={styles.grid2}>
+            {imageList.length > 0 &&
+              imageList.map((image, i) => {
+                if (i % 3 === 0) {
+                  return (
+                    <GalleryImage
+                      key={i}
+                      image={image}
+                      className={styles[`column3`]}
+                    />
+                  );
+                } else if (i % 2 === 0) {
+                  return (
+                    <GalleryImage
+                      key={i}
+                      image={image}
+                      className={styles[`column2`]}
+                    />
+                  );
+                } else {
+                  return (
+                    <GalleryImage
+                      key={i}
+                      image={image}
+                      className={styles[`column1`]}
+                    />
+                  );
+                }
+              })}
+          </div>
+        )}
+
+        {/*
+        {imageList && (
           <div className={styles.grid}>
             {!isMobile ? (
               <Fragment>
@@ -129,6 +152,7 @@ export default function Gallery({ slug }) {
             )}
           </div>
         )}
+         */}
       </div>
     </>
   );
