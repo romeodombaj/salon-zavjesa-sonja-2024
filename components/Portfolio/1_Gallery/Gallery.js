@@ -9,6 +9,25 @@ export default function Gallery({ slug, length }) {
     (_, i) => `/images/webImages/${slug}/${slug}${i + 1}.jpg`
   );
 
+  let imageList1 = [];
+  let imageList2 = [];
+  let imageList3 = [];
+  let imageList4 = [];
+
+  imageList.map((image, i) => {
+    if (i < length / 2) {
+      imageList1.push(image);
+    } else if (i >= length / 2 && i < length) {
+      imageList3.push(image);
+    }
+
+    if (i >= length / 4 && i < (length / 4) * 2) {
+      imageList2.push(image);
+    } else if (i >= (length / 4) * 3 && i < length) {
+      imageList4.push(image);
+    }
+  });
+
   /*const [imageList, setImageList] = useState();
 
   const [isMobile, setIsMobile] = useState(
@@ -66,35 +85,43 @@ export default function Gallery({ slug, length }) {
         <div className={styles[`background-title`]}>{slug}</div>
 
         {imageList && (
-          <div className={styles.grid2}>
-            {imageList.length > 0 &&
-              imageList.map((image, i) => {
-                if (i % 3 === 0) {
+          <div className={styles.grid}>
+            <div className={`${styles.column} ${styles["column1"]}`}>
+              {imageList1.length > 0 &&
+                imageList1.map((image, i) => {
                   return (
                     <GalleryImage
                       key={i}
                       image={image}
-                      className={styles[`column3`]}
+                      isMobile={i < length / 4 ? false : true}
                     />
                   );
-                } else if (i % 2 === 0) {
+                })}
+            </div>
+            <div className={`${styles.column} ${styles["column2"]}`}>
+              {imageList2.length > 0 &&
+                imageList2.map((image, i) => {
+                  return <GalleryImage key={i} image={image} />;
+                })}
+            </div>
+            <div className={`${styles.column} ${styles["column3"]}`}>
+              {imageList3.length > 0 &&
+                imageList3.map((image, i) => {
                   return (
                     <GalleryImage
                       key={i}
                       image={image}
-                      className={styles[`column2`]}
+                      isMobile={i < length / 4 ? false : true}
                     />
                   );
-                } else {
-                  return (
-                    <GalleryImage
-                      key={i}
-                      image={image}
-                      className={styles[`column1`]}
-                    />
-                  );
-                }
-              })}
+                })}
+            </div>
+            <div className={`${styles.column} ${styles["column4"]}`}>
+              {imageList4.length > 0 &&
+                imageList4.map((image, i) => {
+                  return <GalleryImage key={i} image={image} />;
+                })}
+            </div>
           </div>
         )}
 

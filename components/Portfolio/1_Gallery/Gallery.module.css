@@ -12,7 +12,7 @@
   position: relative;
   width: calc(100% - 1rem);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: auto;
   position: relative;
   gap: 0.5rem;
@@ -29,21 +29,6 @@
   gap: inherit;
 }
 
-/* testing */
-
-.grid2 {
-  position: relative;
-  width: calc(100% - 1rem);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: auto;
-  position: relative;
-  gap: 0.5rem;
-  grid-template-areas: "column1 column2 column3";
-}
-
-/* end of testing code */
-
 .column1 {
   animation-delay: 1.15s;
 }
@@ -54,6 +39,10 @@
 
 .column3 {
   animation-delay: 1.3s;
+}
+
+.column4 {
+  animation-delay: 1.22s;
 }
 
 .background-title {
@@ -71,6 +60,14 @@
 @media screen and (max-width: 720px) {
   .grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .column2 {
+    display: none;
+  }
+
+  .column4 {
+    display: none;
   }
 }
 

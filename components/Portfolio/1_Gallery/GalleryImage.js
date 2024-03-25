@@ -2,9 +2,7 @@
 
 import styles from "./GalleryImage.module.css";
 
-export default function GalleryImage(props) {
-  const image = props.image;
-
+export default function GalleryImage({ image, isMobile = false }) {
   // const { ref, inView } = useInView({ threshold: 0.6 });
 
   /*useEffect(() => {
@@ -20,7 +18,7 @@ export default function GalleryImage(props) {
     >
       <img
         src={image}
-        className={`${styles["image"]}`}
+        className={`${styles["image"]} ${styles[isMobile && "mobile"]}`}
         alt="Image."
         fill
       />
