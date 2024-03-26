@@ -1,9 +1,12 @@
-//import { useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 
 import styles from "./GalleryImage.module.css";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export default function GalleryImage({ image, isMobile = false }) {
-  // const { ref, inView } = useInView({ threshold: 0.6 });
+export default function GalleryImage({ image }) {
+  //const { ref, inView } = useInView({ threshold: 0.6 });
+  //const [isLoaded, setLoaded] = useState(false);
 
   /*useEffect(() => {
     if (inView) {
@@ -12,15 +15,14 @@ export default function GalleryImage({ image, isMobile = false }) {
   }, [inView]);*/
 
   return (
-    <div
-      className={`${styles["image-wrapper"]} ${styles["load-animation"]}`}
-      //ref={ref}
-    >
-      <img
+    <div className={`${styles["image-wrapper"]} `}>
+      <Image
         src={image}
-        className={`${styles["image"]} ${styles[isMobile && "mobile"]}`}
+        className={`${styles["image"]} `}
         alt="Image."
-        fill
+        width={400}
+        height={400}
+        priority
       />
     </div>
   );

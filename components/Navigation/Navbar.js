@@ -31,8 +31,6 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    console.log(pathname);
-
     if (pathname === "/" && window.scrollY === 0) {
       setNavShrink(false);
     } else {

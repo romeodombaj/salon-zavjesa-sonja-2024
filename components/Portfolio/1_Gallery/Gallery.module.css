@@ -23,7 +23,7 @@
   grid-template-columns: 1fr;
   height: fit-content;
   transform: translateY(100vh);
-  animation: slide-up 1s forwards;
+  animation: slide-up 1s 1s forwards;
   position: relative;
   width: 100%;
   gap: inherit;
@@ -60,14 +60,6 @@
 @media screen and (max-width: 720px) {
   .grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .column2 {
-    display: none;
-  }
-
-  .column4 {
-    display: none;
   }
 }
 
