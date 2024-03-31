@@ -21,22 +21,6 @@ export default function Navbar() {
   const [navShrink, setNavShrink] = useState();
   const [isNavigating, setIsNavigating] = useState(false);
 
-  const onNavigate = (e) => {
-    const value = e.currentTarget.getAttribute("value");
-    if ("/" + value !== pathname) {
-      //navigate("/" + value);
-      scrollToTop("instant");
-    }
-    scrollToTop("smooth");
-  };
-
-  const scrollToTop = (behavior) => {
-    window.scrollTo({
-      top: 0,
-      behavior: behavior,
-    });
-  };
-
   useEffect(() => {
     if (pathname === "/" && window.scrollY === 0) {
       setNavShrink(false);
@@ -76,7 +60,7 @@ export default function Navbar() {
             }`}
           >
             <PortfolioButton
-              navShrink={navShrink}
+              shrink={navShrink}
               pathname={pathname}
               value="zavjese"
             >
@@ -84,13 +68,13 @@ export default function Navbar() {
             </PortfolioButton>
             <PortfolioButton
               pathname={pathname}
-              navShrink={navShrink}
+              shrink={navShrink}
               value="rolice_paneli"
             >
               Rolice i paneli
             </PortfolioButton>
             <PortfolioButton
-              navShrink={navShrink}
+              shrink={navShrink}
               pathname={pathname}
               value="dekoracija"
             >
@@ -98,7 +82,7 @@ export default function Navbar() {
             </PortfolioButton>
             <PortfolioButton
               pathname={pathname}
-              navShrink={navShrink}
+              shrink={navShrink}
               value="prateca_dekoracija"
             >
               Prateća dekoracija

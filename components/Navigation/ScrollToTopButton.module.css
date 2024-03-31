@@ -1,0 +1,30 @@
+.main {
+  position: fixed;
+  bottom: 8vh;
+  right: 8vh;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgba(var(--highlight-color), 0.4);
+  transition: 0.3s;
+  z-index: 500;
+  opacity: 0;
+  animation: fade-in 1s forwards;
+  padding: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.main:hover {
+  background-color: rgba(var(--highlight-color), 0.8);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

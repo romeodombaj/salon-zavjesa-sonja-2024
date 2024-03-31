@@ -3,6 +3,7 @@ import Navbar from "@/components/Navigation/Navbar";
 import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 import Template from "./template";
+import ScrollToTopButton from "@/components/Navigation/ScrollToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="hr">
       <body className={inter.className}>
         <Navbar priority />
+        <ScrollToTopButton />
         <main>
           <Template>{children}</Template>
         </main>
