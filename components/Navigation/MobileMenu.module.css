@@ -21,6 +21,7 @@
   margin: 0 auto;
   margin-top: 10vh;
   margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 .portfolio-list {
@@ -36,9 +37,9 @@
 .portfolio {
   font-size: 1.5em;
   font-weight: bold;
-  width: 100%;
   text-align: left;
   cursor: pointer;
+  position: relative;
 }
 
 .portfolio:hover {
@@ -46,13 +47,22 @@
 }
 
 .active {
-  color: rgba(var(--highlight-dark-color));
+  color: rgba(var(--highlight-color));
 }
 
-.info-list{
-
+.active::before {
+  content: "";
+  background-color: rgba(var(--highlight-color), 1);
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  top: 2rem;
+  transition: 0.3s;
+  opacity: 1;
 }
 
-.info{
-    
+.info-list {
+}
+
+.info {
 }

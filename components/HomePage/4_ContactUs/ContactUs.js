@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import emailIcon from "@/assets/email-icon.png";
 import phoneIcon from "@/assets/phone-icon.png";
+import ContactLine from "./ContactLine";
 
 export default function ContactUs() {
   return (
@@ -13,23 +14,13 @@ export default function ContactUs() {
         <ContactForm />
         <div className={styles.info}>
           <div className={styles["info-title"]}>KONTAKT</div>
-          <div className={styles["contact-section"]}>
-            <Image
-              className={styles["contact-icon"]}
-              src={phoneIcon}
-              alt="Phone icon."
-            />
-            <div className={styles["contact-text"]}>0995951938</div>
-          </div>
+          <ContactLine image={phoneIcon} alt="Phone icon." text="0995951938" />
 
-          <div className={styles["contact-section"]}>
-            <Image
-              className={styles["contact-icon"]}
-              src={emailIcon}
-              alt="E-mail icon."
-            />
-            <div className={styles["contact-text"]}>sonjad13@net.hr</div>
-          </div>
+          <ContactLine
+            image={emailIcon}
+            alt="Email icon."
+            text="sonjad13@net.hr"
+          />
         </div>
       </div>
     </div>

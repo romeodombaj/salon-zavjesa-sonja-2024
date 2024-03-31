@@ -19,7 +19,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const [navShrink, setNavShrink] = useState();
-  const [isNavigating, setIsNavigating] = useState(true);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   const onNavigate = (e) => {
     const value = e.currentTarget.getAttribute("value");
@@ -55,7 +55,7 @@ export default function Navbar() {
 
   return (
     <>
-      {isNavigating && <MobileMenu />}
+      {isNavigating && <MobileMenu pathname={pathname} />}
       <div
         className={`${styles.wrapper} ${styles[navShrink && "wrapper-shrink"]}`}
       >

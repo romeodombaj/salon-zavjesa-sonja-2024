@@ -32,16 +32,23 @@
 }
 
 .info {
-  height: 60%;
+  height: 50%;
   width: 20%;
   background-color: rgba(var(--highlight-color), 1);
   padding: 1.5rem;
+  color: rgba(var(--light-background-color), 1);
+  border-radius: 0.25rem;
+  text-align: center;
 }
 
 .info-title {
-  font-size: 1.6em;
+  font-size: 2em;
   width: 100%;
-  text-align: center;
   font-weight: bold;
-  color: rgba(var(--light-background-color), 1);
+  margin-bottom: 3rem;
+}
+
+.info-line {
+  font-size: 1.4em;
+  height: 2.7rem;
 }
