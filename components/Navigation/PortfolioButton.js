@@ -5,7 +5,9 @@ export default function PortfolioButton(props) {
   return (
     <Link
       href={`/${props.value}`}
-      className={`${styles.wrapper} ${styles[props.navShrink && "shrink"]}`}
+      className={`${styles.wrapper} ${
+        styles[props.pathname === `/${props.value}` && "active"]
+      } ${styles[props.navShrink && "shrink"]} `}
       {...props}
     >
       {props.children}

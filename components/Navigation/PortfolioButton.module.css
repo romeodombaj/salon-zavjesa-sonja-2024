@@ -34,15 +34,6 @@
   color: rgba(var(--highlight-color), 1);
 }
 
-.wrapper:focus {
-  color: rgba(var(--highlight-color), 1);
-}
-
-.wrapper:focus:before {
-  opacity: 1;
-  width: 25%;
-}
-
 .shrink {
   color: rgba(var(--highlight-dark-color), 1);
   width: wrap;
@@ -70,4 +61,13 @@
 .shrink:hover::before {
   opacity: 1;
   width: 50%;
+}
+
+.active {
+  color: rgba(var(--highlight-color), 1);
+}
+
+.active:before {
+  opacity: 1;
+  width: 25%;
 }

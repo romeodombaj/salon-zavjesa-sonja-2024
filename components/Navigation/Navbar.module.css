@@ -6,6 +6,8 @@
   transition: 0.5s;
   height: 6rem;
   top: 0;
+  opacity: 0;
+  animation: fade-in 1s 1s forwards;
 }
 
 .wrapper-shrink {
@@ -49,6 +51,14 @@
 
 .home:hover {
   color: rgba(var(--highlight-color), 1);
+}
+
+.active {
+  color: rgba(var(--highlight-color), 1);
+}
+
+.active::before {
+  opacity: 1;
 }
 
 .portfolios {
@@ -129,5 +139,14 @@
   .info {
     width: 10rem;
     gap: 0.1rem;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

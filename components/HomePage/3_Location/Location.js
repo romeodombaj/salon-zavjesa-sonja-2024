@@ -2,7 +2,7 @@ import styles from "./Location.module.css";
 
 export default function Location() {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} >
       <div className={styles.title}>PRONAĐITE NAS</div>
       <div className={styles.content}>
         <iframe

@@ -58,7 +58,12 @@ export default function Gallery({ slug, length }) {
   return (
     <>
       <div className={styles.wrapper}>
-        <div className={styles[`background-title`]}>{slug}</div>
+        <div className={styles[`background-title`]}>
+          {slug === "zavjese" && "Zavjese"}
+          {slug === "dekoracija" && "Dekoracija"}
+          {slug === "prateca_dekoracija" && "Prateća dekoracija"}
+          {slug === "rolice_paneli" && "Rolice i paneli"}
+        </div>
 
         {imageList && (
           <div className={styles.grid}>

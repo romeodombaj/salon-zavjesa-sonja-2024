@@ -55,7 +55,9 @@ export default function Navbar() {
           /*onClick={onNavigate}*/
           href="/"
           value=""
-          className={`${styles.home} ${styles[navShrink && "home-shrink"]}`}
+          className={`${styles.home} ${styles[navShrink && "home-shrink"]} ${
+            styles[pathname === "/" && "active"]
+          }`}
         >
           NASLOVNA
         </Link>
@@ -66,12 +68,14 @@ export default function Navbar() {
         >
           <PortfolioButton
             navShrink={navShrink}
+            pathname={pathname}
             value="zavjese"
             onClick={onNavigate}
           >
             Zavjese
           </PortfolioButton>
           <PortfolioButton
+            pathname={pathname}
             navShrink={navShrink}
             value="rolice_paneli"
             onClick={onNavigate}
@@ -80,33 +84,37 @@ export default function Navbar() {
           </PortfolioButton>
           <PortfolioButton
             navShrink={navShrink}
+            pathname={pathname}
             value="dekoracija"
             onClick={onNavigate}
           >
             Dekoracija
           </PortfolioButton>
-          <PortfolioButton navShrink={navShrink} value="prateca_dekoracija">
+          <PortfolioButton
+            pathname={pathname}
+            navShrink={navShrink}
+            value="prateca_dekoracija"
+          >
             Prateća {!navShrink && <br></br>}dekoracija
           </PortfolioButton>
         </div>
         <div className={styles.info}>
-          <div
-            /*changed */
-            onClick={onNavigate}
+          <Link
+            href="/#contact"
             className={`${styles["info-button"]} ${
               styles[navShrink && ["info-button-shrink"]]
             }`}
           >
             KONTAKT
-          </div>
-          <div
-            onClick={onNavigate}
+          </Link>
+          <Link
+            href="/#location"
             className={`${styles["info-button"]} ${
               styles[navShrink && ["info-button-shrink"]]
             }`}
           >
             LOKACIJA
-          </div>
+          </Link>
         </div>
       </div>
     </div>
