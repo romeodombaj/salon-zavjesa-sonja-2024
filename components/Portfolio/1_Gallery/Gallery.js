@@ -5,7 +5,7 @@ import GalleryImage from "./GalleryImage";
 import { useState, useEffect } from "react";
 
 export default function Gallery({ slug, length }) {
-  const [isMobile, setIsMobile] = useState();
+  const [isMobile, setIsMobile] = useState(false);
 
   const imageList = Array.from(
     { length: length },
@@ -39,9 +39,9 @@ export default function Gallery({ slug, length }) {
 
   useEffect(() => {
     const changeMobileView = () => {
-      if (window.innerWidth <= 720 && isMobile === false) {
+      if (window.innerWidth <= 900 && isMobile === false) {
         setIsMobile(true);
-      } else if (window.innerWidth > 720 && isMobile === true) {
+      } else if (window.innerWidth > 900 && isMobile === true) {
         setIsMobile(false);
       }
     };
@@ -51,9 +51,8 @@ export default function Gallery({ slug, length }) {
     return () => {
       window.removeEventListener("resize", changeMobileView);
     };
-  });
+  }, [window.innerWidth]);
 
-  // new
 
   return (
     <>

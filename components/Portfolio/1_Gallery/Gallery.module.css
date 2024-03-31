@@ -56,7 +56,7 @@
   animation: fade-out 1.5s 1s forwards;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
