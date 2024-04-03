@@ -6,6 +6,7 @@ import ContactUs from "@/components/HomePage/4_ContactUs/ContactUs";
 import Services from "@/components/HomePage/1_Services/Services";
 import Location from "@/components/HomePage/3_Location/Location";
 
+export const runtime = "edge";
 
 export default function Home() {
   return (
