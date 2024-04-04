@@ -17,7 +17,6 @@ export default function PortfolioPage({ params }) {
 
   //const POSTS_DIRECTORY = `${process.cwd()}/public/images/webImages/${slug}`;
 
-  console.log("HEEEEREEEE");
   //console.log(POSTS_DIRECTORY);
 
   //const length = getPostLength(POSTS_DIRECTORY);
