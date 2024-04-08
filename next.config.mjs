@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  /* webpack: (
+    config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+  ) => {
+    config.externals.push({
+      fs: "fs",
+    });
+  },*/
+};
 
 import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 

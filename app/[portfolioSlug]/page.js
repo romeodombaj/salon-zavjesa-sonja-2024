@@ -2,7 +2,7 @@ export const runtime = "edge";
 
 import Gallery from "@/components/Portfolio/1_Gallery/Gallery";
 import styles from "./page.module.css";
-//import fs from "fs";
+import fs from "fs";
 //import path from "path";
 
 export const getPostLength = (directory) => {
