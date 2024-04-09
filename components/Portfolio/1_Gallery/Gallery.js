@@ -4,7 +4,8 @@ import styles from "./Gallery.module.css";
 import GalleryImage from "./GalleryImage";
 import { useState, useEffect } from "react";
 
-export default function Gallery({ slug, length }) {
+export default function Gallery({ slug, values }) {
+  const length = values.num_of_images;
   const [isMobile, setIsMobile] = useState(false);
 
   const imageList = Array.from(
@@ -53,16 +54,10 @@ export default function Gallery({ slug, length }) {
     };
   }, [window.innerWidth]);
 
-
   return (
     <>
       <div className={styles.wrapper}>
-        <div className={styles[`background-title`]}>
-          {slug === "zavjese" && "Zavjese"}
-          {slug === "dekoracija" && "Dekoracija"}
-          {slug === "prateca_dekoracija" && "Prateća dekoracija"}
-          {slug === "rolice_paneli" && "Rolice i paneli"}
-        </div>
+        <div className={styles[`background-title`]}>{values.name}</div>
 
         {imageList && (
           <div className={styles.grid}>
