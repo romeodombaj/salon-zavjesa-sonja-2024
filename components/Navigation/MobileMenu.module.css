@@ -11,17 +11,45 @@
   background-color: rgba(var(--dark-background-color));
   z-index: 1000;
   color: rgba(var(--highlight-dark-color));
+  transform: translatex(100%);
+  opacity: 0;
+
+  animation: slide-in 0.5s forwards;
+}
+
+.exit {
+  position: absolute;
+  right: 5vw;
+  top: 5vw;
+  height: 3rem;
+  border-radius: 0.25rem;
+  aspect-ratio: 1;
+  background-color: rgba(var(--highlight-color));
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  animation: fade-in 0.5s 0.5s forwards;
+}
+
+.exit-icon {
+  width: 80%;
+  aspect-ratio: 1.2;
+  position: relative;
 }
 
 .home {
-  width: 90%;
+  float: left;
   text-align: left;
   font-size: 2em;
   font-weight: bold;
-  margin: 0 auto;
-  margin-top: 10vh;
+  margin-top: 20vh;
   margin-bottom: 2rem;
+  margin-left: 4%;
   cursor: pointer;
+  position: relative;
 }
 
 .portfolio-list {
@@ -32,6 +60,7 @@
   width: 85%;
   gap: 1rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
 .portfolio {
@@ -42,27 +71,64 @@
   position: relative;
 }
 
-.portfolio:hover {
-  background-color: black;
-}
-
 .active {
   color: rgba(var(--highlight-color));
 }
 
-.active::before {
+.separator {
+  width: 40%;
+  background-color: rgba(var(--highlight-color), 0.5);
+  height: 1px;
+  margin: 1rem 7.5%;
+  border-radius: 0.25rem;
+}
+
+/*.active::before {
   content: "";
   background-color: rgba(var(--highlight-color), 1);
   position: absolute;
   height: 3px;
   width: 100%;
-  top: 2rem;
+  top: 105%;
   transition: 0.3s;
   opacity: 1;
-}
+}*/
 
 .info-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 85%;
+  gap: 1rem;
+  color: rgba(var(--highlight-dark-color), 0.6);
+  margin: 0 auto;
 }
 
 .info {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
