@@ -21,7 +21,7 @@ export default function ContactForm() {
 
   const onDescriptionChange = (e) => {
     setDescription(e.currentTarget.value);
-  };
+  }
 
   return (
     <div className={styles.wrapper}>
