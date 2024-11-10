@@ -19,7 +19,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const [navShrink, setNavShrink] = useState();
-  const [isNavigating, setIsNavigating] = useState(true);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   const onMenuOpenHandler = () => {
     !isNavigating && setIsNavigating(true);

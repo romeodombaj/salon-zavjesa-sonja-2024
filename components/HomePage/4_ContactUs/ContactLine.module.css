@@ -10,18 +10,19 @@
   padding-right: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0);
-  transition: 1s;
+  transition: 0.5s;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
 }
 
 .contact-section:hover {
-  box-shadow: 1px 1px 20px rgba(73, 73, 73, 0.632);
+  opacity: 0.7;
 }
 
 .contact-icon {
-  height: 2.25rem;
+  height: 35px;
+  width: 35px;
   object-fit: contain;
   margin-right: 1rem;
 }

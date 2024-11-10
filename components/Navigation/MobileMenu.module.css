@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: rgba(var(--dark-background-color));
+  background-color: rgb(var(--light-background-color));
   z-index: 1000;
   color: rgba(var(--highlight-dark-color));
   transform: translatex(0);

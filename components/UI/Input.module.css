@@ -1,10 +1,9 @@
-
 .wrapper {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: start;
+  width: 100%;
 }
 
 .input {
@@ -43,7 +42,8 @@
 }
 
 .label {
-  font-size: 1.1em;
+  font-size: 25px;
+  line-height: 25px;
   text-align: left;
   float: left;
   color: rgb(var(--gray-text-color));

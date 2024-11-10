@@ -12,7 +12,6 @@ export default function ContactForm() {
 
   const onNameChange = (e) => {
     setName(e.currentTarget.value);
-
   };
 
   const onEmailChange = (e) => {
@@ -21,22 +20,20 @@ export default function ContactForm() {
 
   const onDescriptionChange = (e) => {
     setDescription(e.currentTarget.value);
-  }
+  };
 
   return (
     <div className={styles.wrapper}>
-      <div>
-        <Input onChange={onNameChange} value={name} label="Ime" />
-        <Input onChange={onEmailChange} value={email} label="Email" />
-        <Input
-          isTextArea={true}
-          onChange={onDescriptionChange}
-          value={description}
-          label="Poruka"
-        />
-        <div style={{ height: 20 }}></div>
-        <Button>POŠALJI</Button>
-      </div>
+      <Input onChange={onNameChange} value={name} label="Ime" />
+      <Input onChange={onEmailChange} value={email} label="Email" />
+      <Input
+        isTextArea={true}
+        onChange={onDescriptionChange}
+        value={description}
+        label="Poruka"
+      />
+      <div style={{ height: 20 }}></div>
+      <Button>POŠALJI</Button>
     </div>
   );
 }
