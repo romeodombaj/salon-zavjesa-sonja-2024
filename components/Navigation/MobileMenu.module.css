@@ -11,9 +11,8 @@
   background-color: rgba(var(--dark-background-color));
   z-index: 1000;
   color: rgba(var(--highlight-dark-color));
-  transform: translatex(100%);
-  opacity: 0;
-
+  transform: translatex(0);
+  opacity: 1;
   animation: slide-in 0.5s forwards;
 }
 
@@ -40,12 +39,16 @@
   position: relative;
 }
 
+.fade-out {
+  opacity: 1;
+  animation: fade-out 0.5s forwards;
+}
 .home {
   float: left;
   text-align: left;
   font-size: 40px;
   font-weight: bold;
-  margin-top: 20vh;
+  margin-top: 15dvh;
   margin-bottom: 2rem;
   margin-left: 7%;
   cursor: pointer;
@@ -131,5 +134,14 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

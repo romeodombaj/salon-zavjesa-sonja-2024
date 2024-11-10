@@ -2,22 +2,26 @@ import styles from "./MobileMenu.module.css";
 import Link from "next/link";
 import exitIcon from "@/assets/exit-icon.png";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function MobileMenu({ pathname, onMenuCloseHandler }) {
+  const [isClosing, setIsClosing] = useState(false);
+
   const onExit = () => {
+    setIsClosing(true);
     setTimeout(() => {
       onMenuCloseHandler();
-    }, 100);
+    }, 500);
   };
 
   return (
     <>
-      <div className={styles.exit}>
+      <div className={`${styles.exit} ${isClosing && styles[`fade-out`]}`}>
         <div className={styles[`exit-icon`]}>
           <Image src={exitIcon} alt="Exit." fill onClick={onExit} />
         </div>
       </div>
-      <main className={styles.main}>
+      <main className={`${styles.main} ${isClosing && styles[`fade-out`]}`}>
         <Link
           onClick={onExit}
           href="/"
@@ -30,7 +34,7 @@ export default function MobileMenu({ pathname, onMenuCloseHandler }) {
 
         <div className={styles[`portfolio-list`]}>
           <Link
-            onClick={onExit}
+            onClick={onMenuCloseHandler}
             href="/zavjese"
             className={`${styles.portfolio} ${
               styles[pathname === "/zavjese" && "active"]
