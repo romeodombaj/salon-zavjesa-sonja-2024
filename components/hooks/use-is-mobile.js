@@ -23,7 +23,7 @@ const useIsMobile = () => {
     return () => {
       window.removeEventListener("resize", changeMobileView);
     };
-  }, [window.innerWidth]);
+  }, []);
 
   return { isMobile };
 };
