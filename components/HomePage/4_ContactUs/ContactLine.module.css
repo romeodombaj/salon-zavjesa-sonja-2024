@@ -1,5 +1,4 @@
 .contact-section {
-  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -9,7 +8,6 @@
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0);
   transition: 0.5s;
   width: fit-content;
   margin-left: auto;
@@ -30,4 +28,32 @@
 .contact-text {
   font-size: 1.65em;
   color: rgb(var(--light-background-color));
+}
+
+@media screen and (max-width: 768px) {
+  .contact-icon {
+    height: 26px;
+    width: 26px;
+    margin-right: 10px;
+  }
+
+  .contact-text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-text {
+    font-size: 18px;
+  }
+
+  .contact-section {
+    padding: 0;
+  }
+
+  .contact-icon {
+    height: 21px;
+    width: 21px;
+    margin-right: 7px;
+  }
 }

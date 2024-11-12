@@ -5,8 +5,8 @@
   --highlight-color: 210, 162, 120;
   --highlight-dark-color: 126, 97, 72;
   --gray-text-color: 166, 166, 166;
-  --light-background-color: 240, 240, 240;
-  --dark-background-color: 217, 217, 217;
+  --light-background-color: 245, 245, 245;
+  --dark-background-color: 210, 210, 210;
 }
 
 /*--highlight-color: 249, 175, 122;*/
@@ -19,6 +19,8 @@ body {
   /*font-family: "Lemon", serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 code {
@@ -28,6 +30,8 @@ code {
 
 main {
   text-align: center;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 header {
@@ -53,4 +57,3 @@ textarea {
 label {
   all: unset;
 }
-

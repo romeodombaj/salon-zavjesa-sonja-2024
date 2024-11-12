@@ -20,14 +20,15 @@
 
 .content-section {
   display: grid;
-  grid-template-columns: 15rem auto 15rem;
+  grid-template-columns: 15rem 1fr 15rem;
   color: rgb(var(--light-background-color));
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 200px;
   flex-direction: row;
   height: 100%;
   margin: auto;
-  width: 70%;
+  max-width: 95%;
   font-size: 1.1em;
   user-select: none;
   transition: 1s;
@@ -62,8 +63,9 @@
 }
 
 .portfolios {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   transition: 0.3s;
 }
@@ -130,10 +132,11 @@
   display: none;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1450px) {
   .content-section {
     width: 100%;
-    grid-template-columns: 8rem auto 8rem;
+    grid-template-columns: 8rem 1fr 8rem;
+    gap: 0;
   }
 
   .home {
@@ -149,7 +152,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .home {
     font-size: 1.1em;
   }
@@ -166,12 +169,14 @@
   }
 
   .hamburger {
-    display: block;
+    display: flex;
   }
 
   .info-button {
     padding: 0.25rem;
     height: 2rem;
+    width: 2rem;
+    object-fit: contain;
   }
 }
 

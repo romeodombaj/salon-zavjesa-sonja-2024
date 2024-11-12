@@ -12,11 +12,13 @@ import hamburgerIcon from "@/assets/hamburger-icon.png";
 import phoneIcon from "@/assets/phone-icon.png";
 import locationIcon from "@/assets/location-icon.png";
 import MobileMenu from "./MobileMenu";
+import useIsMobile from "../hooks/use-is-mobile";
 
 export default function Navbar() {
   // const navigate = useNavigate();
 
   const pathname = usePathname();
+  const { isMobile } = useIsMobile();
 
   const [navShrink, setNavShrink] = useState();
   const [isNavigating, setIsNavigating] = useState(false);
@@ -47,7 +49,9 @@ export default function Navbar() {
 
   return (
     <div
-      className={`${styles.wrapper} ${styles[navShrink && "wrapper-shrink"]}`}
+      className={`${styles.wrapper} ${
+        (navShrink || isMobile) && styles["wrapper-shrink"]
+      }`}
     >
       {isNavigating && (
         <MobileMenu
@@ -60,19 +64,19 @@ export default function Navbar() {
           /*onClick={onNavigate}*/
           href="/"
           value=""
-          className={`${styles.home} ${styles[navShrink && "home-shrink"]} ${
-            styles[pathname === "/" && "active"]
-          }`}
+          className={`${styles.home} ${
+            (navShrink || isMobile) && styles["home-shrink"]
+          } ${styles[pathname === "/" && "active"]}`}
         >
           NASLOVNA
         </Link>
         <div
           className={`${styles.portfolios} ${
-            styles[navShrink && "portfolios-shrink"]
+            (navShrink || isMobile) && styles["portfolios-shrink"]
           }`}
         >
           <PortfolioButton
-            shrink={navShrink}
+            shrink={navShrink || isMobile}
             pathname={pathname}
             value="zavjese"
           >
@@ -80,13 +84,13 @@ export default function Navbar() {
           </PortfolioButton>
           <PortfolioButton
             pathname={pathname}
-            shrink={navShrink}
+            shrink={navShrink || isMobile}
             value="rolice_paneli"
           >
             Rolice i paneli
           </PortfolioButton>
           <PortfolioButton
-            shrink={navShrink}
+            shrink={navShrink || isMobile}
             pathname={pathname}
             value="dekoracija"
           >
@@ -94,7 +98,7 @@ export default function Navbar() {
           </PortfolioButton>
           <PortfolioButton
             pathname={pathname}
-            shrink={navShrink}
+            shrink={navShrink || isMobile}
             value="prateca_dekoracija"
           >
             Prateća dekoracija
@@ -104,7 +108,7 @@ export default function Navbar() {
           <Link
             href="/#contact"
             className={`${styles["info-button"]} ${
-              styles[navShrink && ["info-button-shrink"]]
+              (navShrink || isMobile) && styles["info-button-shrink"]
             }`}
           >
             <Image
@@ -114,10 +118,11 @@ export default function Navbar() {
             />
             <div className={styles[`info-text`]}>099-595-1938</div>
           </Link>
+
           <Link
             href="/#location"
             className={`${styles["info-button"]} ${
-              styles[navShrink && ["info-button-shrink"]]
+              (navShrink || isMobile) && styles["info-button-shrink"]
             }`}
           >
             <Image
@@ -128,7 +133,7 @@ export default function Navbar() {
           </Link>
           <div
             className={`${styles["info-button"]} ${styles["hamburger"]} ${
-              styles[navShrink && ["info-button-shrink"]]
+              (navShrink || isMobile) && styles["info-button-shrink"]
             }`}
           >
             <Image

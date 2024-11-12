@@ -14,13 +14,19 @@ export default function ContactUs() {
         <ContactForm />
         <div className={styles.info}>
           <div className={styles["info-title"]}>KONTAKT</div>
-          <ContactLine image={phoneIcon} alt="Phone icon." text="0995951938" />
+          <div className={styles["contact-lines"]}>
+            <ContactLine
+              image={phoneIcon}
+              alt="Phone icon."
+              text="0995951938"
+            />
 
-          <ContactLine
-            image={emailIcon}
-            alt="Email icon."
-            text="sonjad13@net.hr"
-          />
+            <ContactLine
+              image={emailIcon}
+              alt="Email icon."
+              text="sonjad13@net.hr"
+            />
+          </div>
         </div>
       </div>
     </div>

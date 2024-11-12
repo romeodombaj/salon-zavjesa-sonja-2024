@@ -22,8 +22,14 @@ export default function ContactForm() {
     setDescription(e.currentTarget.value);
   };
 
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("SUBMITED");
+  };
+
   return (
-    <div className={styles.wrapper}>
+    <form onSubmit={onFormSubmit} className={styles.wrapper}>
       <Input onChange={onNameChange} value={name} label="Ime" />
       <Input onChange={onEmailChange} value={email} label="Email" />
       <Input
@@ -32,8 +38,9 @@ export default function ContactForm() {
         value={description}
         label="Poruka"
       />
-      <div style={{ height: 20 }}></div>
-      <Button>POŠALJI</Button>
-    </div>
+      <div className={styles[`button-wrapper`]}>
+        <Button type="submit">POŠALJI</Button>
+      </div>
+    </form>
   );
 }

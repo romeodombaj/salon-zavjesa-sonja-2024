@@ -1,12 +1,12 @@
 "use client";
 
+import useIsMobile from "@/components/hooks/use-is-mobile";
 import styles from "./Gallery.module.css";
 import GalleryImage from "./GalleryImage";
-import { useState, useEffect } from "react";
 
 export default function Gallery({ slug, values }) {
   const length = values.num_of_images;
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile } = useIsMobile();
 
   const imageList = Array.from(
     { length: length },
@@ -37,22 +37,6 @@ export default function Gallery({ slug, values }) {
       imageList6.push(image);
     }
   });
-
-  useEffect(() => {
-    const changeMobileView = () => {
-      if (window.innerWidth <= 900 && isMobile === false) {
-        setIsMobile(true);
-      } else if (window.innerWidth > 900 && isMobile === true) {
-        setIsMobile(false);
-      }
-    };
-
-    window.addEventListener("resize", changeMobileView);
-
-    return () => {
-      window.removeEventListener("resize", changeMobileView);
-    };
-  }, [window.innerWidth]);
 
   return (
     <>

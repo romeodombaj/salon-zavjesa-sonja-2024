@@ -11,10 +11,12 @@ export default function Location() {
         />
         <div className={styles.info}>
           <div className={styles[`info-title`]}>LOKACIJA</div>
-          <div className={styles[`info-line`]}>Preloška ulica 87</div>
-          <div className={styles[`info-line`]}>40000, Čakovec</div>
-          <div className={styles[`info-line`]}>Međimurje</div>
-          <div className={styles[`info-line`]}>Hrvatska</div>
+          <div className={styles[`info-lines`]}>
+            <div className={styles[`info-line`]}>Preloška ulica 87</div>
+            <div className={styles[`info-line`]}>40000, Čakovec</div>
+            <div className={styles[`info-line`]}>Međimurje</div>
+            <div className={styles[`info-line`]}>Hrvatska</div>
+          </div>
         </div>
       </div>
     </div>
