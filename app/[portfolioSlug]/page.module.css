@@ -1,3 +1,38 @@
+.header {
+  padding-top: 3rem;
+  position: relative;
+  background-color: rgb(var(--dark-background-color));
+}
+
 .main {
   background-color: rgb(var(--dark-background-color));
+  padding-top: 3rem;
+}
+
+.mobile-portfolio-title {
+  width: 100%;
+  font-size: 20px;
+  background-color: rgb(var(--highlight-color));
+  padding: 5px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: whitesmoke;
+  position: fixed;
+  top: 3;
+  z-index: 100;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.226);
+}
+
+@media screen and (min-width: 1000px) {
+  .mobile-portfolio-title {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    padding: auto;
+  }
+
+  .header {
+    padding-top: 0;
+  }
 }

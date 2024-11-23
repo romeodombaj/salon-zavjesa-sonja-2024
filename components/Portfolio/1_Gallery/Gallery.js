@@ -3,10 +3,13 @@
 import useIsMobile from "@/components/hooks/use-is-mobile";
 import styles from "./Gallery.module.css";
 import GalleryImage from "./GalleryImage";
+import ImageShow from "@/components/UI/ImageShow";
+import { useEffect, useState } from "react";
 
 export default function Gallery({ slug, values }) {
   const length = values.num_of_images;
   const { isMobile } = useIsMobile();
+  const [currentIndex, setCurrentIndex] = useState();
 
   const imageList = Array.from(
     { length: length },
@@ -22,24 +25,35 @@ export default function Gallery({ slug, values }) {
 
   imageList.map((image, i) => {
     if (i < length / 4) {
-      imageList1.push(image);
+      imageList1.push({ image, i });
     } else if (i >= length / 4 && i < (length / 4) * 2) {
-      imageList2.push(image);
+      imageList2.push({ image, i });
     } else if (i >= (length / 4) * 2 && i < (length / 4) * 3) {
-      imageList3.push(image);
+      imageList3.push({ image, i });
     } else if (i >= (length / 4) * 3) {
-      imageList4.push(image);
+      imageList4.push({ image, i });
     }
 
     if (i < length / 2) {
-      imageList5.push(image);
+      imageList5.push({ image, i });
     } else if (i >= length / 2) {
-      imageList6.push(image);
+      imageList6.push({ image, i });
     }
   });
 
+  useEffect(() => {
+    console.log(currentIndex);
+  }, [currentIndex]);
+
   return (
     <>
+      {currentIndex !== undefined && (
+        <ImageShow
+          images={imageList}
+          imageIndex={currentIndex}
+          setImageIndex={setCurrentIndex}
+        />
+      )}
       <div className={styles.wrapper}>
         <div className={styles[`background-title`]}>{values.name}</div>
 
@@ -49,26 +63,54 @@ export default function Gallery({ slug, values }) {
               <>
                 <div className={`${styles.column} ${styles["column1"]}`}>
                   {imageList1.length > 0 &&
-                    imageList1.map((image, i) => {
-                      return <GalleryImage key={i} image={image} />;
+                    imageList1.map((image) => {
+                      return (
+                        <GalleryImage
+                          key={image.i}
+                          index={image.i}
+                          image={image.image}
+                          setCurrentIndex={setCurrentIndex}
+                        />
+                      );
                     })}
                 </div>
                 <div className={`${styles.column} ${styles["column2"]}`}>
                   {imageList2.length > 0 &&
-                    imageList2.map((image, i) => {
-                      return <GalleryImage key={i} image={image} />;
+                    imageList2.map((image) => {
+                      return (
+                        <GalleryImage
+                          key={image.i}
+                          index={image.i}
+                          image={image.image}
+                          setCurrentIndex={setCurrentIndex}
+                        />
+                      );
                     })}
                 </div>
                 <div className={`${styles.column} ${styles["column3"]}`}>
                   {imageList3.length > 0 &&
-                    imageList3.map((image, i) => {
-                      return <GalleryImage key={i} image={image} />;
+                    imageList3.map((image) => {
+                      return (
+                        <GalleryImage
+                          key={image.i}
+                          index={image.i}
+                          image={image.image}
+                          setCurrentIndex={setCurrentIndex}
+                        />
+                      );
                     })}
                 </div>
                 <div className={`${styles.column} ${styles["column4"]}`}>
                   {imageList4.length > 0 &&
-                    imageList4.map((image, i) => {
-                      return <GalleryImage key={i} image={image} />;
+                    imageList4.map((image) => {
+                      return (
+                        <GalleryImage
+                          key={image.i}
+                          index={image.i}
+                          image={image.image}
+                          setCurrentIndex={setCurrentIndex}
+                        />
+                      );
                     })}
                 </div>
               </>
@@ -76,14 +118,28 @@ export default function Gallery({ slug, values }) {
               <>
                 <div className={`${styles.column} ${styles["column1"]}`}>
                   {imageList5.length > 0 &&
-                    imageList5.map((image, i) => {
-                      return <GalleryImage key={i} image={image} />;
+                    imageList5.map((image) => {
+                      return (
+                        <GalleryImage
+                          key={image.i}
+                          index={image.i}
+                          image={image.image}
+                          setCurrentIndex={setCurrentIndex}
+                        />
+                      );
                     })}
                 </div>
                 <div className={`${styles.column} ${styles["column2"]}`}>
                   {imageList6.length > 0 &&
-                    imageList6.map((image, i) => {
-                      return <GalleryImage key={i} image={image} />;
+                    imageList6.map((image) => {
+                      return (
+                        <GalleryImage
+                          key={image.i}
+                          index={image.i}
+                          image={image.image}
+                          setCurrentIndex={setCurrentIndex}
+                        />
+                      );
                     })}
                 </div>
               </>

@@ -1,9 +1,14 @@
 import styles from "./GalleryImage.module.css";
 import Image from "next/image";
 
-export default function GalleryImage({ image }) {
+export default function GalleryImage({ image, setCurrentIndex, index }) {
+  const onImageOpen = () => {
+    console.log("img click");
+    setCurrentIndex(index);
+  };
+
   return (
-    <div className={`${styles["image-wrapper"]} `}>
+    <div className={`${styles["image-wrapper"]} `} onClick={onImageOpen}>
       <Image
         src={image}
         className={`${styles["image"]} `}

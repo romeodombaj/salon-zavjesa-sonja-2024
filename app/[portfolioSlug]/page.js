@@ -28,15 +28,19 @@ const pageValues = [
 
 export default function PortfolioPage({ params }) {
   const slug = params.portfolioSlug;
+  const currentPageValue =
+    pageValues[pageValues.findIndex((value) => value.slug === slug)];
 
   return (
-    <main className={styles.main}>
-      <Gallery
-        slug={slug}
-        values={
-          pageValues[pageValues.findIndex((value) => value.slug === slug)]
-        }
-      />
-    </main>
+    <>
+      <header className={styles.header}>
+        <div className={styles[`mobile-portfolio-title`]}>
+          {currentPageValue.name}
+        </div>
+      </header>
+      <main className={styles.main}>
+        <Gallery slug={slug} values={currentPageValue} />
+      </main>
+    </>
   );
 }
