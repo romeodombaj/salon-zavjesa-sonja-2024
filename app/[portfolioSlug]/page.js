@@ -2,6 +2,7 @@ export const runtime = "edge";
 
 import Gallery from "@/components/Portfolio/1_Gallery/Gallery";
 import styles from "./page.module.css";
+import useGetGalleryData from "@/components/hooks/uge-get-gallery-data";
 
 const pageValues = [
   {
@@ -26,10 +27,14 @@ const pageValues = [
   },
 ];
 
-export default function PortfolioPage({ params }) {
+export default async function PortfolioPage({ params }) {
+  const { getGalleryData } = useGetGalleryData();
+
   const slug = params.portfolioSlug;
   const currentPageValue =
     pageValues[pageValues.findIndex((value) => value.slug === slug)];
+
+  const imageList = await getGalleryData(slug);
 
   return (
     <>
@@ -39,7 +44,13 @@ export default function PortfolioPage({ params }) {
         </div>
       </header>
       <main className={styles.main}>
-        <Gallery slug={slug} values={currentPageValue} />
+        {imageList && (
+          <Gallery
+            imageList={imageList}
+            slug={slug}
+            values={currentPageValue}
+          />
+        )}
       </main>
     </>
   );

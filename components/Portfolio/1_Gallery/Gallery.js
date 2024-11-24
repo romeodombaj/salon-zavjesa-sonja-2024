@@ -6,15 +6,15 @@ import GalleryImage from "./GalleryImage";
 import ImageShow from "@/components/UI/ImageShow";
 import { useEffect, useState } from "react";
 
-export default function Gallery({ slug, values }) {
+export default function Gallery({ slug, values, imageList }) {
   const length = values.num_of_images;
   const { isMobile } = useIsMobile();
   const [currentIndex, setCurrentIndex] = useState();
 
-  const imageList = Array.from(
+  /*const imageList = Array.from(
     { length: length },
     (_, i) => `/images/webImages/${slug}/${slug}${i + 1}.jpg`
-  );
+  );*/
 
   let imageList1 = [];
   let imageList2 = [];
@@ -25,25 +25,21 @@ export default function Gallery({ slug, values }) {
 
   imageList.map((image, i) => {
     if (i < length / 4) {
-      imageList1.push({ image, i });
+      imageList1.push(image);
     } else if (i >= length / 4 && i < (length / 4) * 2) {
-      imageList2.push({ image, i });
+      imageList2.push(image);
     } else if (i >= (length / 4) * 2 && i < (length / 4) * 3) {
-      imageList3.push({ image, i });
+      imageList3.push(image);
     } else if (i >= (length / 4) * 3) {
-      imageList4.push({ image, i });
+      imageList4.push(image);
     }
 
     if (i < length / 2) {
-      imageList5.push({ image, i });
+      imageList5.push(image);
     } else if (i >= length / 2) {
-      imageList6.push({ image, i });
+      imageList6.push(image);
     }
   });
-
-  useEffect(() => {
-    console.log(currentIndex);
-  }, [currentIndex]);
 
   return (
     <>
@@ -66,9 +62,9 @@ export default function Gallery({ slug, values }) {
                     imageList1.map((image) => {
                       return (
                         <GalleryImage
-                          key={image.i}
-                          index={image.i}
-                          image={image.image}
+                          key={image.id}
+                          index={image.id}
+                          image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
                       );
@@ -79,9 +75,9 @@ export default function Gallery({ slug, values }) {
                     imageList2.map((image) => {
                       return (
                         <GalleryImage
-                          key={image.i}
-                          index={image.i}
-                          image={image.image}
+                          key={image.id}
+                          index={image.id}
+                          image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
                       );
@@ -92,9 +88,9 @@ export default function Gallery({ slug, values }) {
                     imageList3.map((image) => {
                       return (
                         <GalleryImage
-                          key={image.i}
-                          index={image.i}
-                          image={image.image}
+                          key={image.id}
+                          index={image.id}
+                          image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
                       );
@@ -105,9 +101,9 @@ export default function Gallery({ slug, values }) {
                     imageList4.map((image) => {
                       return (
                         <GalleryImage
-                          key={image.i}
-                          index={image.i}
-                          image={image.image}
+                          key={image.id}
+                          index={image.id}
+                          image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
                       );
@@ -121,9 +117,9 @@ export default function Gallery({ slug, values }) {
                     imageList5.map((image) => {
                       return (
                         <GalleryImage
-                          key={image.i}
-                          index={image.i}
-                          image={image.image}
+                          key={image.id}
+                          index={image.id}
+                          image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
                       );
@@ -134,9 +130,9 @@ export default function Gallery({ slug, values }) {
                     imageList6.map((image) => {
                       return (
                         <GalleryImage
-                          key={image.i}
-                          index={image.i}
-                          image={image.image}
+                          key={image.id}
+                          index={image.id}
+                          image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
                       );
