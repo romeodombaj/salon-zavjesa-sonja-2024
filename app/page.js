@@ -18,7 +18,8 @@ export default function Home() {
         <AboutUs />
         <div className={styles.divider} id="location" />
         <Location />
-        <div className={styles.divider} id="contact" />
+        <div className={styles[`contact-divider`]} />
+        <div id="contact" />
         <ContactUs />
       </main>
     </>

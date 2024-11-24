@@ -14,9 +14,10 @@
 .image-container {
   height: 80%;
   width: 100%;
+  opacity: 0;
   max-width: calc(100vw - 20rem);
   position: relative;
-  animation: fade-in 0.3s forwards;
+  animation: fade-in 0.3s 0.3s forwards;
 }
 
 .image {
@@ -30,7 +31,7 @@
 }
 
 .image-transition {
-  animation: fade-out 0.25s forwards;
+  animation: fade-out 0.3s;
 }
 
 .counter {

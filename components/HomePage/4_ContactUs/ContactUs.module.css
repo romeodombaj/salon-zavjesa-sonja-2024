@@ -3,7 +3,8 @@
   max-width: 90%;
   height: min-content;
   margin: auto;
-  padding-bottom: 3.5rem;
+  padding-bottom: calc(100px + 4rem);
+  padding-top: 4rem;
 }
 
 .title {
@@ -49,29 +50,20 @@
 }
 
 @media screen and (max-width: 768px) {
-  .wrapper {
-    padding: 0 0 1rem 0;
-  }
-
   .title {
-    font-size: 40px;
+    font-size: 35px;
   }
 
   .content {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
-    margin-top: 20px;
-  }
-
-  .contact-lines {
-    flex-direction: row;
+    margin-top: 0px;
   }
 
   .info {
-    margin-top: 35px;
-    padding: 1rem 1.5rem;
-    max-width: 100%;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.683);
+    width: min-content;
+    padding: 1rem 2rem;
+    margin-bottom: 20px;
   }
 
   .info-title {
@@ -82,12 +74,13 @@
 
 @media screen and (max-width: 480px) {
   .title {
-    font-size: 35px;
+    font-size: 27px;
   }
 
   .info {
-    width: 100%;
-    padding: 1rem 0.3rem;
+    width: min-content;
+    padding: 0.5rem 1rem;
+    margin-bottom: 20px;
   }
 
   .info-title {

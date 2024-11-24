@@ -77,14 +77,13 @@ export default function ImageShow({ images, imageIndex, setImageIndex }) {
           height={50}
           layout="intrinsic"
         />
-
         <div
           className={`${styles[`image-container`]} ${
             styles[currentIndex !== nextIndex && `image-transition`]
           }`}
         >
           <Image
-            src={images[currentIndex]}
+            src={images[currentIndex].src}
             alt="Image."
             className={`${styles.image}`}
             fill

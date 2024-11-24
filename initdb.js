@@ -1,4 +1,5 @@
 const sql = require("better-sqlite3");
+const { convertImageToBase64 } = require("./convertImageToBase64");
 const db = sql("gallery.db");
 
 const zavjese = [
@@ -275,7 +276,8 @@ db.prepare(
          id INTEGER PRIMARY KEY AUTOINCREMENT,
          "order" INTEGER UNIQUE,
          title TEXT NOT NULL,
-         src TEXT NOT NULL UNIQUE
+         src TEXT NOT NULL UNIQUE,
+         thumbnail TEXT
       )
     `
 ).run();
@@ -286,7 +288,8 @@ db.prepare(
          id INTEGER PRIMARY KEY AUTOINCREMENT,
          "order" INTEGER UNIQUE,
          title TEXT NOT NULL,
-         src TEXT NOT NULL UNIQUE
+         src TEXT NOT NULL UNIQUE,
+         thumbnail TEXT
       )
     `
 ).run();
@@ -297,7 +300,8 @@ db.prepare(
          id INTEGER PRIMARY KEY AUTOINCREMENT,
          "order" INTEGER UNIQUE,
          title TEXT NOT NULL,
-         src TEXT NOT NULL UNIQUE
+         src TEXT NOT NULL UNIQUE,
+         thumbnail TEXT
       )
     `
 ).run();
@@ -313,7 +317,7 @@ async function initData() {
       )
    `);
 
-  for (const el of zavjese) {
+  for (let el of zavjese) {
     stmtZavjese.run(el);
   }
 
@@ -323,11 +327,17 @@ async function initData() {
        null,
        @order,
        @title,
-       @src
+       @src,
+       @thumbnail
+
     )
  `);
 
-  for (const el of rolice_paneli) {
+  for (let el of rolice_paneli) {
+    el = {
+      ...el,
+      thumbnail: convertImageToBase64(el.src),
+    };
     stmtRolice.run(el);
   }
 
@@ -337,11 +347,17 @@ async function initData() {
        null,
        @order,
        @title,
-       @src
+       @src,
+       @thumbnail
+
     )
  `);
 
-  for (const el of dekoracija) {
+  for (let el of dekoracija) {
+    el = {
+      ...el,
+      thumbnail: convertImageToBase64(el.src),
+    };
     stmtDekoracija.run(el);
   }
 
@@ -351,11 +367,17 @@ async function initData() {
        null,
        @order,
        @title,
-       @src
+       @src,
+       @thumbnail
+
     )
  `);
 
-  for (const el of prateca_dekoracija) {
+  for (let el of prateca_dekoracija) {
+    el = {
+      ...el,
+      thumbnail: convertImageToBase64(el.src),
+    };
     stmtPrateca.run(el);
   }
 }

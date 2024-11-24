@@ -1,4 +1,4 @@
-  import styles from "./AboutUs.module.css";
+import styles from "./AboutUs.module.css";
 import Image from "next/image";
 import image from "@/assets/head-img.jpg";
 

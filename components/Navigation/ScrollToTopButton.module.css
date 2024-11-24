@@ -1,23 +1,28 @@
 .main {
   position: fixed;
-  bottom: 8vh;
-  right: 8vh;
-  width: 1.5rem;
-  aspect-ratio: 1;
+  bottom: 40px;
+  right: 5vw;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: rgba(var(--highlight-color), 0.4);
   transition: 0.3s;
   z-index: 500;
   opacity: 0;
   animation: fade-in 1s forwards;
-  padding: 1.5rem;
+  padding: 15px;
   cursor: pointer;
   user-select: none;
 }
 
-
 .main:hover {
   background-color: rgba(var(--highlight-color), 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    bottom: 5vw;
+  }
 }
 
 @keyframes fade-in {

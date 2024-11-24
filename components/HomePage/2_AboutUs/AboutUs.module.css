@@ -3,11 +3,12 @@
   max-width: 95%;
   min-width: 700px;
   width: 1200px;
-  height: 70dvh;
+  height: min-content;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  min-height: min-content;
+  height: 80vh;
+  padding: 100px 0;
 }
 
 .info {
@@ -31,11 +32,14 @@
   width: 100%;
 }
 
+.image-wrapper {
+}
+
 .image {
+  object-fit: cover;
   width: 400px;
   min-width: 300px;
   height: 100%;
-  object-fit: cover;
 }
 
 @media screen and (max-width: 768px) {

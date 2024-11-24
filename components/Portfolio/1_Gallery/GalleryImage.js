@@ -3,7 +3,6 @@ import Image from "next/image";
 
 export default function GalleryImage({ image, setCurrentIndex, index }) {
   const onImageOpen = () => {
-    console.log("img click");
     setCurrentIndex(index);
   };
 

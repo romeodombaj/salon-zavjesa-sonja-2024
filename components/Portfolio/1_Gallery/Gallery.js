@@ -63,7 +63,7 @@ export default function Gallery({ slug, values, imageList }) {
                       return (
                         <GalleryImage
                           key={image.id}
-                          index={image.id}
+                          index={image.order}
                           image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
@@ -76,7 +76,7 @@ export default function Gallery({ slug, values, imageList }) {
                       return (
                         <GalleryImage
                           key={image.id}
-                          index={image.id}
+                          index={image.order}
                           image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
@@ -89,7 +89,7 @@ export default function Gallery({ slug, values, imageList }) {
                       return (
                         <GalleryImage
                           key={image.id}
-                          index={image.id}
+                          index={image.order}
                           image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
@@ -102,7 +102,7 @@ export default function Gallery({ slug, values, imageList }) {
                       return (
                         <GalleryImage
                           key={image.id}
-                          index={image.id}
+                          index={image.order}
                           image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
@@ -118,7 +118,7 @@ export default function Gallery({ slug, values, imageList }) {
                       return (
                         <GalleryImage
                           key={image.id}
-                          index={image.id}
+                          index={image.order}
                           image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
@@ -131,7 +131,7 @@ export default function Gallery({ slug, values, imageList }) {
                       return (
                         <GalleryImage
                           key={image.id}
-                          index={image.id}
+                          index={image.order}
                           image={image.src}
                           setCurrentIndex={setCurrentIndex}
                         />
