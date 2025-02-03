@@ -4,11 +4,18 @@ import { useState } from "react";
 import Input from "../../UI/Input";
 import styles from "./ContactForm.module.css";
 import Button from "../../UI/Button";
+import axios from "axios";
+import Loader from "@/components/UI/Loader";
+import Error from "@/components/UI/Error";
+import Success from "@/components/UI/Success";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const onNameChange = (e) => {
     setName(e.currentTarget.value);
@@ -22,25 +29,45 @@ export default function ContactForm() {
     setDescription(e.currentTarget.value);
   };
 
-  const onFormSubmit = (e) => {
+  const onFormSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("SUBMITED");
+    try {
+      setIsLoading(true);
+      const data = {
+        name,
+        email,
+        text: description,
+      };
+
+      console.log("STARTING TO SEND");
+      const response = await axios.post("/api/sendMail", data);
+      setIsSuccess(true);
+    } catch (err) {
+      setIsError(true);
+    }
+
+    setIsLoading(false);
   };
 
   return (
-    <form onSubmit={onFormSubmit} className={styles.wrapper}>
-      <Input onChange={onNameChange} value={name} label="Ime" />
-      <Input onChange={onEmailChange} value={email} label="Email" />
-      <Input
-        isTextArea={true}
-        onChange={onDescriptionChange}
-        value={description}
-        label="Poruka"
-      />
-      <div className={styles[`button-wrapper`]}>
-        <Button type="submit">POŠALJI</Button>
-      </div>
-    </form>
+    <>
+      {isLoading && <Loader />}
+      {isError && <Error onClose={() => setIsError(false)} />}
+      {isSuccess && <Success onClose={() => setIsSuccess(false)} />}
+      <form onSubmit={onFormSubmit} className={styles.wrapper}>
+        <Input onChange={onNameChange} value={name} label="Ime" />
+        <Input onChange={onEmailChange} value={email} label="Email" />
+        <Input
+          isTextArea={true}
+          onChange={onDescriptionChange}
+          value={description}
+          label="Poruka"
+        />
+        <div className={styles[`button-wrapper`]}>
+          <Button type="submit">POŠALJI</Button>
+        </div>
+      </form>
+    </>
   );
 }

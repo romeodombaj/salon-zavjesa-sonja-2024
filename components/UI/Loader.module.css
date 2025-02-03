@@ -1,0 +1,26 @@
+.contaner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #d2a278;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  gap: 10px;
+}
+
+.title {
+  color: whitesmoke;
+  font-size: 22px;
+  text-align: center;
+  font-weight: 600;
+  user-select: none;
+}
+
+.ring-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
