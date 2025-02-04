@@ -10,7 +10,7 @@
 .title {
   font-size: 3em;
   font-weight: bold;
-  color: rgba(var(--light-background-color), 1);
+  color: white;
   margin: auto;
   margin-bottom: 2rem;
 }
@@ -40,7 +40,7 @@
   width: 290px;
   background-color: rgba(var(--highlight-color), 1);
   padding: 1.5rem;
-  color: rgba(var(--light-background-color), 1);
+  color: white;
   border-radius: 0.25rem;
   text-align: center;
 }
@@ -111,7 +111,36 @@
 }
 
 @media screen and (max-width: 480px) {
+  .map {
+    width: 85vw;
+    height: 85vw;
+  }
+
   .title {
     font-size: 35px;
+  }
+
+  .info {
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+  }
+
+  .info-title {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .info-lines {
+    align-self: center;
+    justify-self: start;
+    text-align: center;
+    width: min-content;
+    text-wrap: nowrap;
   }
 }

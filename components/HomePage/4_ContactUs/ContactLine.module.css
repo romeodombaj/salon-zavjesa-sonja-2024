@@ -27,7 +27,7 @@
 
 .contact-text {
   font-size: 1.65em;
-  color: rgb(var(--light-background-color));
+  color: white;
 }
 
 @media screen and (max-width: 768px) {

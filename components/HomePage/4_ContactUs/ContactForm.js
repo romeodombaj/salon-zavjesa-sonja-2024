@@ -42,6 +42,7 @@ export default function ContactForm() {
       setIsLoading(true);
       const data = {
         name,
+        subject,
         email,
         text: description,
       };

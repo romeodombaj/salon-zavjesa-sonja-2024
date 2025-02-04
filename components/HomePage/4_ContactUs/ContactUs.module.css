@@ -55,7 +55,7 @@
   visibility: hidden;
   font-size: 30px;
   font-weight: bold;
-  margin: 50px 0;
+  margin: 25px 0;
   color: rgb(34, 34, 34);
 }
 
@@ -86,14 +86,10 @@
     visibility: visible;
     display: block;
   }
-}
 
-@media screen and (max-width: 480px) {
   .info-title {
-    font-size: 22px;
-  }
-
-  .contact-lines {
-    gap: 10px;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
   }
 }

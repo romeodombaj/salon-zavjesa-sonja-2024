@@ -10,7 +10,7 @@ export async function POST(request) {
 
   console.log(data);
 
-  const { email, name, text } = data;
+  const { email, name, subject, text } = data;
 
   console.log("here");
   console.log(email);
@@ -35,8 +35,8 @@ export async function POST(request) {
     const info = await transporter.sendMail({
       from: process.env.SMTP_USER, //'"Your Name" <shorvat314@gmail.com>',
       to: process.env.RECIEVER_MAIL,
-      subject: "[KONTAKT FORMA] " + name,
-      text,
+      subject: subject + "[KONTAKT FORMA]",
+      html: await bodyHtml({ name, email, subject, text }),
       replyTo: email,
     });
 
@@ -60,3 +60,37 @@ export async function POST(request) {
     );
   }
 }
+
+const bodyHtml = async ({ name, email, subject, text }) => {
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Data</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f9f9f9; padding: 20px; }
+    .container { background-color: #ffffff; padding: 20px; max-width: 100%; margin: 0 auto; }
+    .label { }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+        <div class="label"><strong>Ime: </strong> ${name}</div>
+        <p>----------------</p>
+       
+        <div class="label"><strong>Email: </strong>${email}</div>
+        <p>----------------</p>
+
+        <div class="label"><strong>Naslov:</strong> ${subject}</div>
+        <p>----------------</p>
+
+        <div class="label"><strong>Poruka:</strong> <br> ${text}</div>
+        <p>----------------</p>
+        
+  </div>
+</body>
+</html>
+`;
+};
