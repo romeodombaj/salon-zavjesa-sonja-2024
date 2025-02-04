@@ -1,21 +1,29 @@
 import styles from "./Success.module.css";
 import Modal from "./Modal";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 export default function Success({ onClose }) {
+  const timeoutRef = useRef(null);
+
   useEffect(() => {
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       onClose();
     }, [5000]);
   }, []);
 
   return (
-    <Modal>
+    <Modal
+      onClose={() => {
+        timeoutRef.current && clearTimeout(timeoutRef.current);
+        onClose();
+      }}
+    >
       <div className={styles.container}>
+        <FaRegCheckCircle className={styles.check} />
         <div className={styles.title}>
-          Poruka je uspješno poslana,
-          <br />
-          javiti ćemo vam se u najkraćem mogućem vremenu.
+          Poruka je uspješno poslana, javiti ćemo vam se u najkraćem mogućem
+          vremenu.
         </div>
       </div>
     </Modal>

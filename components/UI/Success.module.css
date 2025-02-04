@@ -1,6 +1,40 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  width: 400px;
+  max-width: calc(80vw - 80px);
+  gap: 30px;
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+
 .title {
-  color: whitesmoke;
-  font-size: 24px;
+  color: black;
+  font-size: 22px;
   font-weight: 600;
   text-align: center;
+}
+
+.check {
+  height: 100px;
+  width: 100px;
+  color: rgb(var(--success-green));
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 20px;
+    max-width: calc(80vw - 40px);
+  }
+
+  .title {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
 }

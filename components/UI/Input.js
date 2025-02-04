@@ -5,7 +5,7 @@ export default function Input({
   label,
   value,
   onChange,
-  props,
+  ...props
 }) {
   return (
     <div className={styles.wrapper}>

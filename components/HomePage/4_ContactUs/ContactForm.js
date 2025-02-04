@@ -13,6 +13,8 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
+  const [subject, setSubject] = useState("");
+
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -27,6 +29,10 @@ export default function ContactForm() {
 
   const onDescriptionChange = (e) => {
     setDescription(e.currentTarget.value);
+  };
+
+  const onSubjectChange = (e) => {
+    setSubject(e.currentTarget.value);
   };
 
   const onFormSubmit = async (e) => {
@@ -44,6 +50,7 @@ export default function ContactForm() {
       const response = await axios.post("/api/sendMail", data);
       setIsSuccess(true);
     } catch (err) {
+      console.log("GOTTEN AN ERROR");
       setIsError(true);
     }
 
@@ -56,13 +63,26 @@ export default function ContactForm() {
       {isError && <Error onClose={() => setIsError(false)} />}
       {isSuccess && <Success onClose={() => setIsSuccess(false)} />}
       <form onSubmit={onFormSubmit} className={styles.wrapper}>
-        <Input onChange={onNameChange} value={name} label="Ime" />
-        <Input onChange={onEmailChange} value={email} label="Email" />
+        <Input onChange={onNameChange} value={name} label="Ime" required />
+        <Input
+          onChange={onEmailChange}
+          value={email}
+          label="Email"
+          required
+          type="email"
+        />
+        <Input
+          value={subject}
+          onChange={onSubjectChange}
+          label="Naslov"
+          required
+        />
         <Input
           isTextArea={true}
           onChange={onDescriptionChange}
           value={description}
           label="Poruka"
+          required
         />
         <div className={styles[`button-wrapper`]}>
           <Button type="submit">POŠALJI</Button>

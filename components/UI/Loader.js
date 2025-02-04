@@ -18,7 +18,7 @@ export default function Loader() {
           />
         </div>
 
-        <div className={styles.title}>Slanje e-maila</div>
+        <div className={styles.title}>Slanje poruke</div>
       </div>
     </Modal>
   );

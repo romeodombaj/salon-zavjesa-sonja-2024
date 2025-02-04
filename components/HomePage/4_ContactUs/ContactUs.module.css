@@ -19,9 +19,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 5%;
   margin: auto;
   margin-top: 55px;
+  gap: 5%;
 }
 
 .info {
@@ -49,6 +49,16 @@
   gap: 1rem;
 }
 
+.ili {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 50px 0;
+  color: rgb(34, 34, 34);
+}
+
 @media screen and (max-width: 768px) {
   .title {
     font-size: 35px;
@@ -58,31 +68,27 @@
     flex-direction: column-reverse;
     align-items: center;
     margin-top: 0px;
+    gap: 0;
   }
 
   .info {
     width: min-content;
     padding: 1rem 2rem;
-    margin-bottom: 20px;
   }
 
   .info-title {
     font-size: 24px;
     margin-bottom: 0.75rem;
   }
+
+  .ili {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .title {
-    font-size: 27px;
-  }
-
-  .info {
-    width: min-content;
-    padding: 0.5rem 1rem;
-    margin-bottom: 20px;
-  }
-
   .info-title {
     font-size: 22px;
   }

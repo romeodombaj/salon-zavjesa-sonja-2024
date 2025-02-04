@@ -7,6 +7,8 @@
   --gray-text-color: 166, 166, 166;
   --light-background-color: 245, 245, 245;
   --dark-background-color: 210, 210, 210;
+  --error-red: 163, 17, 17;
+  --success-green: 15, 168, 15;
 }
 
 /*--highlight-color: 249, 175, 122;*/

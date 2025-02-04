@@ -12,6 +12,7 @@ export default function ContactUs() {
       <div className={styles.title}>KONTAKTIRAJTE NAS</div>
       <div className={styles.content}>
         <ContactForm />
+        <div className={styles.ili}>ILI</div>
         <div className={styles.info}>
           <div className={styles["info-title"]}>KONTAKT</div>
           <div className={styles["contact-lines"]}>
