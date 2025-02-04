@@ -36,6 +36,9 @@ export default async function PortfolioPage({ params }) {
 
   const imageList = await getGalleryData(slug);
 
+  console.log("IN HERE");
+  console.log(imageList);
+
   return (
     <>
       <header className={styles.header}>

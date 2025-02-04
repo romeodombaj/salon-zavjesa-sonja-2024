@@ -7,6 +7,7 @@ import ImageShow from "@/components/UI/ImageShow";
 import { useEffect, useState } from "react";
 
 export default function Gallery({ slug, values, imageList }) {
+  console.log(imageList);
   const length = values.num_of_images;
   const { isMobile } = useIsMobile();
   const [currentIndex, setCurrentIndex] = useState();

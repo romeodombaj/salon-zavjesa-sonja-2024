@@ -6,6 +6,7 @@ export default function GalleryImage({ image, setCurrentIndex, index }) {
     setCurrentIndex(index);
   };
 
+
   return (
     <div className={`${styles["image-wrapper"]} `} onClick={onImageOpen}>
       <Image

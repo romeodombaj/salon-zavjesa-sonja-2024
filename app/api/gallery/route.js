@@ -4,8 +4,6 @@ export async function GET(req) {
   const url = new URL(req.url);
   const slug = url.searchParams.get("slug");
 
-  console.log(slug);
-
   try {
     const galleryData = await getGallery(slug);
     return new Response(JSON.stringify(galleryData), { status: 200 });
