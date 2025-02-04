@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Input from "../../UI/Input";
 import styles from "./ContactForm.module.css";
 import Button from "../../UI/Button";
@@ -8,6 +8,7 @@ import axios from "axios";
 import Loader from "@/components/UI/Loader";
 import Error from "@/components/UI/Error";
 import Success from "@/components/UI/Success";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -18,6 +19,8 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const recaptchaRef = useRef(null);
 
   const onNameChange = (e) => {
     setName(e.currentTarget.value);
@@ -33,6 +36,16 @@ export default function ContactForm() {
 
   const onSubjectChange = (e) => {
     setSubject(e.currentTarget.value);
+  };
+
+  const onReCAPTCHAChange = (token) => {
+    console.log("reCAPTCHA token:", token);
+    // Here, you can send the token along with your form data to your server for verification.
+
+    // Optionally, reset the reCAPTCHA after submission
+    if (recaptchaRef.current) {
+      recaptchaRef.current.reset();
+    }
   };
 
   const onFormSubmit = async (e) => {
@@ -84,6 +97,14 @@ export default function ContactForm() {
           value={description}
           label="Poruka"
           required
+        />
+
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={process.env.NEXT_PUBLIC_SITE_KEY} // Replace with your actual site key
+          size="invisible"
+          badge="inline" // Options: "bottomright", "bottomleft", or "inline"
+          onChange={onReCAPTCHAChange}
         />
         <div className={styles[`button-wrapper`]}>
           <Button type="submit">POŠALJI</Button>
