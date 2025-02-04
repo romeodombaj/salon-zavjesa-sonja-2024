@@ -39,10 +39,6 @@ export default function ContactForm() {
   };
 
   const onReCAPTCHAChange = (token) => {
-    console.log("reCAPTCHA token:", token);
-    // Here, you can send the token along with your form data to your server for verification.
-
-    // Optionally, reset the reCAPTCHA after submission
     if (recaptchaRef.current) {
       recaptchaRef.current.reset();
     }
@@ -51,6 +47,9 @@ export default function ContactForm() {
   const onFormSubmit = async (e) => {
     e.preventDefault();
 
+    const token = await recaptchaRef.current.executeAsync();
+    recaptchaRef.current.reset();
+
     try {
       setIsLoading(true);
       const data = {
@@ -58,13 +57,12 @@ export default function ContactForm() {
         subject,
         email,
         text: description,
+        token,
       };
 
-      console.log("STARTING TO SEND");
-      const response = await axios.post("/api/sendMail", data);
+      await axios.post("/api/sendMail", data);
       setIsSuccess(true);
     } catch (err) {
-      console.log("GOTTEN AN ERROR");
       setIsError(true);
     }
 
@@ -103,7 +101,7 @@ export default function ContactForm() {
           ref={recaptchaRef}
           sitekey={process.env.NEXT_PUBLIC_SITE_KEY} // Replace with your actual site key
           size="invisible"
-          badge="inline" // Options: "bottomright", "bottomleft", or "inline"
+          badge="bottomleft" // Options: "bottomright", "bottomleft", or "inline"
           onChange={onReCAPTCHAChange}
         />
         <div className={styles[`button-wrapper`]}>

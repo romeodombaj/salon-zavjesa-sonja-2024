@@ -1,37 +1,49 @@
 // app/api/sendEmail/route.js
 
-import { getNamedMiddlewareRegex } from "next/dist/shared/lib/router/utils/route-regex";
 import nodemailer from "nodemailer";
+import axios from "axios";
 
 export async function POST(request) {
-  console.log("IN EMAIL FUNCTION");
-
   const data = await request.json();
 
-  console.log(data);
-
-  const { email, name, subject, text } = data;
-
-  console.log("here");
-  console.log(email);
-  console.log("here2");
-  // Configure the transporter
+  const { email, name, subject, text, token } = data;
 
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_SERVER, // Replace with your SMTP server
+    host: process.env.SMTP_SERVER,
     port: process.env.SMTP_HOST,
-    secure: false, // true for 465, false for other ports
+    secure: false,
     auth: {
-      user: process.env.SMTP_USER, // SMTP user from environment variables
-      pass: process.env.SMTP_PASS, // SMTP password from environment variables
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
   });
 
+  const secretKey = process.env.SECRET_KEY; // Use your secret key here
+
   try {
-    console.log("BEFORE SENDING");
     // Send the email
 
-    console.log(process.env.RECIEVER_MAIL);
+    const verificationResponse = await axios.post(
+      "https://www.google.com/recaptcha/api/siteverify",
+      null,
+      {
+        params: {
+          secret: secretKey,
+          response: token, // Send the token from the client
+        },
+      }
+    );
+
+    const { success } = verificationResponse.data;
+
+    if (!success) {
+      console.log("RECATPCHA ERROR");
+      return new Response(JSON.stringify({ message: "Error captcha" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const info = await transporter.sendMail({
       from: process.env.SMTP_USER, //'"Your Name" <shorvat314@gmail.com>',
       to: process.env.RECIEVER_MAIL,
@@ -39,8 +51,6 @@ export async function POST(request) {
       html: await bodyHtml({ name, email, subject, text }),
       replyTo: email,
     });
-
-    console.log("AFTER SENDING");
 
     return new Response(
       JSON.stringify({ message: "Email sent successfully", info }),
