@@ -1,16 +1,12 @@
+import axios from "axios";
 const useGetGalleryData = () => {
   const getGalleryData = async (slug = "zavjese") => {
-    console.log("heres");
     try {
-      const resp = await fetch(
+      const resp = await axios.get(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/gallery?slug=${slug}`
       );
 
-      if (!resp.ok) {
-        return console.log("ERROR GETTING DATA");
-      }
-
-      return resp.json();
+      return await resp.data;
     } catch (error) {
       console.log(error);
     }
