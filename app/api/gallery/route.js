@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { getGallery } from "@/lib/gallery"; // Assuming this function gets data from your database
 
 export async function GET(req) {
