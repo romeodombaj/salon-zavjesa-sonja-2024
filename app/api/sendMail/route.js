@@ -1,5 +1,4 @@
 // app/api/sendEmail/route.js
-export const runtime = "edge";
 
 import nodemailer from "nodemailer";
 import axios from "axios";

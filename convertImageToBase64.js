@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("");
 const path = require("path");
 
 module.exports = {
