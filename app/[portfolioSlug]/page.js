@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import Gallery from "@/components/Portfolio/1_Gallery/Gallery";
 import styles from "./page.module.css";
 import useGetGalleryData from "@/components/hooks/uge-get-gallery-data";
