@@ -1,6 +1,7 @@
 import Gallery from "@/components/Portfolio/1_Gallery/Gallery";
 import styles from "./page.module.css";
 import useGetGalleryData from "@/components/hooks/uge-get-gallery-data";
+import { getGallery } from "@/lib/gallery";
 
 const pageValues = [
   {
@@ -26,13 +27,15 @@ const pageValues = [
 ];
 
 export default async function PortfolioPage({ params }) {
-  const { getGalleryData } = useGetGalleryData();
+  //const { getGalleryData } = useGetGalleryData();
 
   const slug = params.portfolioSlug;
   const currentPageValue =
     pageValues[pageValues.findIndex((value) => value.slug === slug)];
 
-  const imageList = await getGalleryData(slug);
+  const imageList = await getGallery(slug);
+
+  //const imageList = await getGalleryData(slug);
 
   console.log("IN HERE");
   console.log(imageList);
